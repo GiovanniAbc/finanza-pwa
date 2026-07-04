@@ -2,18 +2,31 @@
   "name": "Finanza Personale Giovanni",
   "short_name": "Finanza",
   "description": "Gestionale personale mobile per entrate, uscite, patrimonio e risparmio.",
-  "start_url": "./index.html",
+  "start_url": "./index.html?v=3",
   "scope": "./",
+  "id": "/finanza-pwa/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "https://drive.google.com/thumbnail?id=1-euVjbweH4ka_7ZIMD_OoixdLP9mRX5b&sz=w192-h192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://drive.google.com/thumbnail?id=1-euVjbweH4ka_7ZIMD_OoixdLP9mRX5b&sz=w512-h512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://drive.google.com/thumbnail?id=1-euVjbweH4ka_7ZIMD_OoixdLP9mRX5b&sz=w512-h512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "categories": ["finance", "productivity"],
