@@ -56,6 +56,11 @@
       flex: 0 0 auto;
     }
 
+    .title-block {
+      min-width: 0;
+      flex: 1;
+    }
+
     .title {
       font-size: 18px;
       font-weight: bold;
@@ -66,18 +71,6 @@
       font-size: 12px;
       color: #94a3b8;
       margin-top: 2px;
-    }
-
-    .open-external {
-      margin-left: auto;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: #22c55e;
-      color: #052e16;
-      font-size: 13px;
-      font-weight: bold;
-      text-decoration: none;
-      white-space: nowrap;
     }
 
     iframe {
@@ -110,11 +103,10 @@
 <body>
   <header class="topbar">
     <img class="icon" src="https://drive.google.com/thumbnail?id=1-euVjbweH4ka_7ZIMD_OoixdLP9mRX5b&sz=w192-h192" alt="Finanza">
-    <div>
+    <div class="title-block">
       <div class="title">Finanza</div>
       <div class="subtitle">Gestionale personale</div>
     </div>
-    <a class="open-external" href="https://script.google.com/macros/s/AKfycbzPfvfyAh_U0ASqbNiUnFaht_8Z-z3-lM8EVwYBk4IAxtwBau9ad6BZvVexIRK8yT5_YQ/exec" target="_blank" rel="noopener">Apri</a>
   </header>
 
   <iframe
