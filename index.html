@@ -23,91 +23,129 @@
 
     html, body {
       margin: 0;
+      width: 100%;
+      height: 100%;
       min-height: 100vh;
       background: #0f172a;
       color: #e5e7eb;
       font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
     body {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      flex-direction: column;
     }
 
-    .card {
-      width: 100%;
-      max-width: 420px;
-      background: #111827;
-      border: 1px solid #334155;
-      border-radius: 28px;
-      padding: 28px;
-      text-align: center;
+    .topbar {
+      min-height: 58px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #020617;
+      border-bottom: 1px solid #1e293b;
     }
 
     .icon {
-      width: 112px;
-      height: 112px;
-      margin: 0 auto 18px auto;
-      border-radius: 28px;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
       overflow: hidden;
+      flex: 0 0 auto;
     }
 
-    h1 {
-      margin: 0 0 8px 0;
-      font-size: 34px;
+    .title {
+      font-size: 18px;
+      font-weight: bold;
       line-height: 1.1;
     }
 
-    p {
-      margin: 0 0 22px 0;
+    .subtitle {
+      font-size: 12px;
       color: #94a3b8;
-      font-size: 18px;
-      line-height: 1.4;
+      margin-top: 2px;
     }
 
-    .button {
-      display: block;
-      width: 100%;
-      min-height: 64px;
-      border: none;
-      border-radius: 20px;
+    .open-external {
+      margin-left: auto;
+      padding: 10px 12px;
+      border-radius: 12px;
       background: #22c55e;
       color: #052e16;
-      font-size: 22px;
+      font-size: 13px;
       font-weight: bold;
       text-decoration: none;
-      line-height: 64px;
-      cursor: pointer;
+      white-space: nowrap;
     }
 
-    .secondary {
-      margin-top: 14px;
-      font-size: 14px;
-      color: #64748b;
+    iframe {
+      width: 100%;
+      flex: 1;
+      border: 0;
+      background: #0f172a;
+    }
+
+    .fallback {
+      display: none;
+      padding: 24px;
+      text-align: center;
+      background: #0f172a;
+    }
+
+    .fallback a {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 16px 22px;
+      border-radius: 16px;
+      background: #22c55e;
+      color: #052e16;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <main class="card">
+  <header class="topbar">
     <img class="icon" src="icon.svg" alt="Finanza">
+    <div>
+      <div class="title">Finanza</div>
+      <div class="subtitle">Gestionale personale</div>
+    </div>
+    <a class="open-external" href="https://script.google.com/macros/s/AKfycbzPfvfyAh_U0ASqbNiUnFaht_8Z-z3-lM8EVwYBk4IAxtwBau9ad6BZvVexIRK8yT5_YQ/exec" target="_blank" rel="noopener">Apri</a>
+  </header>
+
+  <iframe
+    id="appFrame"
+    src="https://script.google.com/macros/s/AKfycbzPfvfyAh_U0ASqbNiUnFaht_8Z-z3-lM8EVwYBk4IAxtwBau9ad6BZvVexIRK8yT5_YQ/exec"
+    title="Finanza Personale Giovanni"
+    allow="clipboard-read; clipboard-write">
+  </iframe>
+
+  <div class="fallback" id="fallback">
     <h1>Finanza</h1>
-    <p>Accesso rapido al tuo gestionale personale per movimenti, dashboard e patrimonio.</p>
-    <a class="button" id="openApp" href="https://script.google.com/macros/s/AKfycbzPfvfyAh_U0ASqbNiUnFaht_8Z-z3-lM8EVwYBk4IAxtwBau9ad6BZvVexIRK8yT5_YQ/exec">Apri gestionale</a>
-    <div class="secondary">Se non si apre automaticamente, premi il pulsante.</div>
-  </main>
+    <p>Se il gestionale non si carica qui dentro, aprilo con il pulsante sotto.</p>
+    <a href="https://script.google.com/macros/s/AKfycbzPfvfyAh_U0ASqbNiUnFaht_8Z-z3-lM8EVwYBk4IAxtwBau9ad6BZvVexIRK8yT5_YQ/exec" target="_blank" rel="noopener">Apri gestionale</a>
+  </div>
 
   <script>
-    const APP_URL = "https://script.google.com/macros/s/AKfycbzPfvfyAh_U0ASqbNiUnFaht_8Z-z3-lM8EVwYBk4IAxtwBau9ad6BZvVexIRK8yT5_YQ/exec";
-
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("service-worker.js").catch(function() {});
     }
 
+    const frame = document.getElementById("appFrame");
+    const fallback = document.getElementById("fallback");
+
     setTimeout(function() {
-      window.location.href = APP_URL;
-    }, 900);
+      try {
+        if (!frame || frame.clientHeight < 100) {
+          fallback.style.display = "block";
+        }
+      } catch (e) {
+        fallback.style.display = "block";
+      }
+    }, 3500);
   </script>
 </body>
 </html>
