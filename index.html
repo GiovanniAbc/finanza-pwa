@@ -12,9 +12,10 @@
 
   <title>Finanza</title>
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="manifest" href="manifest.json?v=3">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://drive.google.com/thumbnail?id=1-euVjbweH4ka_7ZIMD_OoixdLP9mRX5b&sz=w192-h192">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://drive.google.com/thumbnail?id=1-euVjbweH4ka_7ZIMD_OoixdLP9mRX5b&sz=w512-h512">
+  <link rel="apple-touch-icon" href="https://drive.google.com/thumbnail?id=1-euVjbweH4ka_7ZIMD_OoixdLP9mRX5b&sz=w512-h512">
 
   <style>
     * {
@@ -108,7 +109,7 @@
 </head>
 <body>
   <header class="topbar">
-    <img class="icon" src="icon.svg" alt="Finanza">
+    <img class="icon" src="https://drive.google.com/thumbnail?id=1-euVjbweH4ka_7ZIMD_OoixdLP9mRX5b&sz=w192-h192" alt="Finanza">
     <div>
       <div class="title">Finanza</div>
       <div class="subtitle">Gestionale personale</div>
@@ -131,7 +132,7 @@
 
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js").catch(function() {});
+      navigator.serviceWorker.register("service-worker.js?v=3").catch(function() {});
     }
 
     const frame = document.getElementById("appFrame");
