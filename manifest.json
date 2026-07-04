@@ -1,0 +1,21 @@
+{
+  "name": "Finanza Personale Giovanni",
+  "short_name": "Finanza",
+  "description": "Gestionale personale mobile per entrate, uscite, patrimonio e risparmio.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "productivity"],
+  "lang": "it"
+}
