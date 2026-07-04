@@ -1,9 +1,8 @@
-const CACHE_NAME = "finanza-pwa-v1";
+const CACHE_NAME = "finanza-pwa-v3";
 const CORE_ASSETS = [
   "./",
-  "./index.html",
-  "./manifest.json",
-  "./icon.svg"
+  "./index.html?v=3",
+  "./manifest.json?v=3"
 ];
 
 self.addEventListener("install", function(event) {
@@ -38,8 +37,14 @@ self.addEventListener("fetch", function(event) {
   }
 
   event.respondWith(
-    caches.match(event.request).then(function(cached) {
-      return cached || fetch(event.request);
+    fetch(event.request).then(function(response) {
+      const clone = response.clone();
+      caches.open(CACHE_NAME).then(function(cache) {
+        cache.put(event.request, clone);
+      });
+      return response;
+    }).catch(function() {
+      return caches.match(event.request);
     })
   );
 });
