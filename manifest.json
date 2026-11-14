@@ -2,7 +2,7 @@
   "name": "Finanza Personale Giovanni",
   "short_name": "Finanza",
   "description": "Gestionale personale mobile per entrate, uscite, patrimonio e risparmio.",
-  "start_url": "./index.html?v=3",
+  "start_url": "./index.html?v=4",
   "scope": "./",
   "id": "/finanza-pwa/",
   "display": "standalone",
